@@ -1,14 +1,25 @@
 import re
+import hashlib
+
+# List of common weak passwords
+COMMON_WEAK_PASSWORDS = [
+    "password", "123456", "123456789", "qwerty", "12345678", "111111", "123123",
+    "abc123", "password1", "1234", "12345", "admin", "letmein", "welcome"
+]
 
 def check_password_strength(password):
     """
     This function evaluates the strength of a password based on:
+    - Common weak passwords list
     - Length (Minimum 8 characters)
     - Uppercase letters
     - Lowercase letters
     - Numbers
     - Special characters
     """
+    if password.lower() in COMMON_WEAK_PASSWORDS:
+        return "Weak password. Avoid using common passwords."
+
     strength_criteria = {
         "length": len(password) >= 8,
         "uppercase": bool(re.search(r"[A-Z]", password)),
