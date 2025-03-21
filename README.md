@@ -20,4 +20,6 @@ It evaluates passwords based on:
 ## How to Use
 1. Clone the repository:
    ```bash
+   git clone https://github.com/tamt3012/password-strength-checker.git
+   cd password-strength-checker
    
